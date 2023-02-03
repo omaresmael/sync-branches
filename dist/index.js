@@ -307,14 +307,19 @@ async function run() {
       owner,
       repo,
     });
-    currentPulls.forEach(pull => {
-      pullNumber = pull.number
-      octokit.rest.pulls.updateBranch({
-        owner,
-        repo,
-        pullNumber,
-      });
-    })
+    // currentPulls.forEach(pull => {
+    //   pullNumber = pull.number
+    //   octokit.rest.pulls.updateBranch({
+    //     owner,
+    //     repo,
+    //     pullNumber,
+    //   });
+    // })
+    octokit.rest.pulls.updateBranch({
+      owner,
+      repo,
+      pull_number: 3,
+    });
     const currentPull = currentPulls.find((pull) => {
       return pull.head.ref === fromBranch && pull.base.ref === toBranch;
     });
