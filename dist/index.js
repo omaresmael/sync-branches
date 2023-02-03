@@ -308,7 +308,12 @@ async function run() {
       repo,
     });
     currentPulls.forEach(pull => {
-      console.log(pull.number)
+      pullNumber = pull.number
+      octokit.rest.pulls.updateBranch({
+        owner,
+        repo,
+        pullNumber,
+      });
     })
     const currentPull = currentPulls.find((pull) => {
       return pull.head.ref === fromBranch && pull.base.ref === toBranch;
