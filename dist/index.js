@@ -309,9 +309,10 @@ async function run() {
     });
 
     const currentPull = currentPulls.find((pull) => {
+      console.log(pull)
       return pull.head.ref === fromBranch && pull.base.ref === toBranch;
     });
-    console.log(currentPull)
+    
     if (!currentPull) {
       let shouldCreatePullRequest = true;
       if (contentComparison) {
