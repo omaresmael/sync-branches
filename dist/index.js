@@ -307,9 +307,8 @@ async function run() {
       owner,
       repo,
     });
-
+    console.log(currentPulls)
     const currentPull = currentPulls.find((pull) => {
-      console.log(pull)
       return pull.head.ref === fromBranch && pull.base.ref === toBranch;
     });
     
